@@ -1,9 +1,4 @@
-// main.ts — servidor mínimo para n8n en Deno Deploy
+import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
+import { handleRequest } from "https://raw.githubusercontent.com/n8n-io/n8n-deno/726caf2c1db59bd4cb84ce8e96bd1ebea6d1f456/utils/proxy.ts";
 
-import { serve } from "https://deno.land/std@0.207.0/http/server.ts";
-import { createProxy } from "https://raw.githubusercontent.com/n8n-io/n8n-deno/main/utils/proxy.ts";
-
-const handler = createProxy();
-
-serve(handler);
-console.log("✅ n8n-Deno Deploy iniciado");
+serve(handleRequest);
